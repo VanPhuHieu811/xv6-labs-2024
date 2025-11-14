@@ -81,7 +81,6 @@ kalloc(void)
   return (void*)r;
 }
 
-// kernel/kalloc.c
 uint64
 getfreemem(void)
 {
