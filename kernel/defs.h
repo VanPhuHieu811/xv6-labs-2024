@@ -9,7 +9,16 @@ struct sleeplock;
 struct stat;
 struct superblock;
 
+// kalloc.c
+uint64 getfreemem(void);
+// proc.c
+uint64 countprocs(void);
+// file.c
+uint64 countopenfiles(void);
+// sysproc.c
+uint64 sys_sysinfo(void);
 // bio.c
+
 void            binit(void);
 struct buf*     bread(uint, uint);
 void            brelse(struct buf*);

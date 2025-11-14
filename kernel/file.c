@@ -180,3 +180,17 @@ filewrite(struct file *f, uint64 addr, int n)
   return ret;
 }
 
+// kernel/file.c
+uint64
+countopenfiles(void)
+{
+  uint64 c = 0;
+  acquire(&ftable.lock);
+  for(struct file *f = ftable.file; f < ftable.file + NFILE; f++){
+    if(f->ref > 0)
+      c++;
+  }
+  release(&ftable.lock);
+  return c;
+}
+  
