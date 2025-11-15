@@ -11,6 +11,11 @@ main(int argc, char *argv[])
   }
 
   int mask = atoi(argv[1]);   // chuyển chuỗi argv[1] thành số nguyên
+  
+  if (mask == 0 && argv[1][0] != '0') {
+    fprintf(2, "Error: mask must be a number. You entered: %s\n", argv[1]);
+    exit(1);
+  }
   trace(mask);                // bật chế độ trace với mask
 
   // chạy chương trình được chỉ định (argv[2]) với các tham số còn lại
